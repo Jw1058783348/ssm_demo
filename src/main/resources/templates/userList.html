@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath() + '/'}"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</head>
+<body th:inline="text">
+<div>
+    <table class="table table-striped">
+        <tr>
+            <td><input type="checkbox" name="quanxuan" class="quanxuan" onclick="selectAll()"/></td>
+            <td>id</td>
+            <td>username</td>
+            <td>password</td>
+            <td>opinion</td>
+        </tr>
+        <tr th:each="user: ${userList}">
+            <td><input type="checkbox" name="id" class="ids" th:value="${user.id}"/></td>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.password}"></td>
+            <td><a th:href="${'/userController/editUser/'+user.id}">更新用户</a>||<a th:href="${'/userController/deleteUser/'+user.id}">删除用户</a>
+            </td>
+        </tr>
+        <tr><td><a th:href="${'/userController/topage/adduser'}">添加用户</a></td></tr>
+        <tr><td><a th:href="${'/userController/topage/adduserlist'}">添加多个用户</a></td></tr>
+    </table>
+    <script>
+        function selectAll() {
+            var cked=$(".quanxuan").prop("checked");
+            $(".ids").prop("checked",cked);
+        }
+    </script>
+</div>
+</body>
+</html>

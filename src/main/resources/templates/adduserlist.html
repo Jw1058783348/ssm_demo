@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath() + '/'}"/>
+    <meta charset="UTF-8">
+    <title>添加用户
+    </title>
+</head>
+<body>
+<form action="/userController/addUserList" th:method="post">
+<table>
+    <tr>
+        <td>姓名：</td>
+        <td><input th:type="text" name="userList[0].username" /></td>
+    </tr>
+    <tr>
+        <td>密码：</td>
+        <td><input th:type="password" th:name="userList[0].password" /></td>
+    </tr>
+    <tr>
+    <tr>
+        <td>姓名：</td>
+        <td><input th:type="text" name="userList[1].username" /></td>
+    </tr>
+    <tr>
+        <td>密码：</td>
+        <td><input th:type="password" th:name="userList[1].password" /></td>
+    </tr>
+    <tr>
+    <tr>
+        <td>姓名：</td>
+        <td><input th:type="text" name="userList[2].username" /></td>
+    </tr>
+    <tr>
+        <td>密码：</td>
+        <td><input th:type="password" th:name="userList[2].password" /></td>
+    </tr>
+    <tr>
+        <td><input th:type="submit" th:value="提交">
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

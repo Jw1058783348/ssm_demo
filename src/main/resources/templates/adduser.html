@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath() + '/'}"/>
+    <meta charset="UTF-8">
+    <title>添加用户
+    </title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</head>
+<body>
+<form action="/userController/addUser" th:method="post">
+    <div class="form-group">
+        <label for="user-name-label">用户名</label>
+        <input type="text" class="form-control" id="user-name-label" placeholder="请输入用户名" name="username">
+    </div>
+    <div class="form-group">
+        <label for="password-label">密码</label>
+        <input type="password" class="form-control" id="password-label" placeholder="请输入密码" name="password">
+    </div>
+    <div class="form-group">
+        <label for="hobby-label">爱好</label>
+        <input type="text" class="form-control" id="hobby-label" placeholder="请输入爱好" name="hobbys">
+        <input type="text" class="form-control" id="hobby-label2" placeholder="请输入爱好" name="hobbys">
+        <input type="text" class="form-control" id="hobby-label3" placeholder="请输入爱好" name="hobbys">
+        <input type="text" class="form-control" id="hobby-label4" placeholder="请输入爱好" name="hobbys">
+    </div>
+    <div class="form-group">
+    <input class="btn btn-default" type="submit" value="Submit" />
+    </div>
+    <div><input class="btn btn-default" type="button" value="测试ajax" id="testa"/></div>
+</form>
+<script>
+    $("#testa").click(function(){
+        let username1=$("#user-name-label").val()
+        let password1=$("#password-label").val()
+        $.ajax({
+            url:'/test/addUser',
+            data:{username:username1,password:password1},
+            dataType:'jsonp',
+            type:'POST',
+            jsonp : "callback", //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+            jsonpCallback: "handleSubmit",//设置回调函数名
+            success:function (res) {
+                console.log("这是successs里面的---->"+JSON.stringify(res))
+            }
+        })
+    })
+    function handleSubmit(res){
+        alert(res)
+    }
+</script>
+</body>
+</html>

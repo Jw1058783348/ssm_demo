@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+  resources:
+    static-locations: classpath:/client/,classpath:/webapp/
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+mybatis:
+  mapper-locations: classpath:com/qf/ssm_demo/dao/mapper/*.xml
+  type-aliases-package: com.qf.ssm_demo.entity

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath() + '/'}"/>
+    <meta charset="UTF-8">
+    <title>编辑用户</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</head>
+<body>
+<form action="/userController/saveUser" th:method="post">
+    <div class="form-group">
+        <input th:type="hidden" name="id" th:value="${user.id}" />
+        <label for="user-name-label">用户名</label>
+        <input type="text" class="form-control" id="user-name-label" placeholder="请输入用户名" name="username" th:value="${user.username}">
+    </div>
+    <div class="form-group">
+        <label for="password-label">密码</label>
+        <input type="password" class="form-control" id="password-label" placeholder="请输入密码" name="password" th:value="${user.password}">
+    </div>
+    <div class="form-group">
+        <input class="btn btn-default" type="submit" value="Submit">
+    </div>
+</form>
+</body>
+</html>

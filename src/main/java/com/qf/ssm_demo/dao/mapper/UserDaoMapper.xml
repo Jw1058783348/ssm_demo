@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.ssm_demo.dao.IUserDao">
+
+
+    <select id="queryAll"   resultType="user">
+        select * from t_user
+    </select>
+    <select id="searchUser" resultType="com.qf.ssm_demo.entity.User" parameterType="Integer">
+        select * from t_user where id=#{id}
+    </select>
+
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user(username,password) values(#{username},#{password})
+    </insert>
+
+    <update id="updateUser">
+        update t_user set username=#{username},password=#{password} where id=#{id}
+    </update>
+    <delete id="deleteUser">
+        delete from t_user where id in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
