@@ -6,7 +6,7 @@ spring:
     encoding: UTF-8
     cache: false
   resources:
-    static-locations: classpath:/client/,classpath:/webapp/
+    static-locations: classpath:/client/,classpath:/webapp/,classpath:/static/,classpath:/templates/
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root

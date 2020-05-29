@@ -40,19 +40,19 @@ public class UserController {
         System.out.println("爱好是="+Arrays.toString(hobbys));
        userService.addUser(user);
         System.out.println(user);
-        return "index";
+        return "index1";
     }
     @RequestMapping("/saveUser")
     public String saveUser(User user){
         userService.updateUser(user);
 
-        return "index";
+        return "index1";
     }
     @RequestMapping("/deleteUser/{ids}")
     public String deleteUser(@PathVariable("id") ArrayList<Integer> ids){
         userService.deleteUser(ids);
         System.out.println(111111111);
-        return "index";
+        return "index1";
     }
     @RequestMapping("/editUser/{id}")
     public String editUser(@PathVariable("id")Integer id ,Model model){
@@ -70,7 +70,7 @@ public class UserController {
     @RequestMapping("/addUserList")
     public String addUserList(UserList userList){
         System.out.println(userList);
-        return "index";
+        return "index1";
     }
 
 }

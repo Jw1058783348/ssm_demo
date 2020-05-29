@@ -77,6 +77,17 @@
                     <include>com/qf/ssm_demo/dao/mapper/*.xml</include>
                 </includes>
             </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>client/**</include>
+                    <include>static/**</include>
+                    <include>templates/**</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
         </resources>
     </build>
 
