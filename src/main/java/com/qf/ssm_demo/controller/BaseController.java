@@ -23,5 +23,5 @@ public class BaseController {
     public String toIndex3(){
         return "index3";//指定后可以直接通过路径访问，但是不能通过controller
     }
-    //结论:经过application.yml指定路径之后可以访问到静态资源文件夹,可直接访问的静态资源文件夹是指定的或者webapp，除了templates文件夹以外其他文件夹无法通过controller实现跳转
+    //结论:经过application.yml指定路径之后可以访问到静态资源文件夹,可直接访问的静态资源文件夹是指定的或者webapp，除了templates文件夹以外其他文件夹无法通过controller实现跳转(因为集成的是thymeleaf)
 }

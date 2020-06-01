@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath() + '/'}"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js" ></script>
+</head>
+<body>
+    <h4>这是Index3，位于/webapp</h4>
+    <a href="userController/getUserList">用户列表</a>
+    <tr><td><a th:href="${'/userController/topage/adduser'}">添加用户</a></td></tr>
+    <h1 id="text"></h1>
+</body>
+</html>
